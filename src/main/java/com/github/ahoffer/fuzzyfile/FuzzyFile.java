@@ -46,6 +46,7 @@ public class FuzzyFile {
             .stream()
             .map(Path::toFile)
             .map(f -> new File(f, getExecutableName()))
+            .filter(File::exists)
             .findFirst();
 
     if (opt.isPresent()) {
