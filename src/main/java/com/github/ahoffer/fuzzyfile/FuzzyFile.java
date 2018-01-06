@@ -21,17 +21,17 @@ public class FuzzyFile {
 
   String posixSearchPath;
   String windowsSearchPath;
-  String posixExecutableName;
-  String windowsExecutableName;
+  String posixFilename;
+  String windowsFilename;
   List<Path> searchPathObjects;
   File file;
   boolean isInitialized;
 
   public FuzzyFile(String posixPath, String posixExec, String windowsPath, String windowsExec) {
     posixSearchPath = posixPath;
-    posixExecutableName = posixExec;
+    posixFilename = posixExec;
     windowsSearchPath = windowsPath;
-    windowsExecutableName = windowsExec;
+    windowsFilename = windowsExec;
   }
 
   // TODO: Maybe this abstraction let's me decouple the non-java sizers from the vagaries of
@@ -98,16 +98,16 @@ public class FuzzyFile {
     this.searchPathObjects = searchPathObjects;
   }
 
-  public String getPosixExecutableName() {
-    return posixExecutableName;
+  public String getPosixFilename() {
+    return posixFilename;
   }
 
-  public String getWindowsExecutableName() {
-    return windowsExecutableName;
+  public String getWindowsFilename() {
+    return windowsFilename;
   }
 
   public String getExecutableName() {
-    return isWindows() ? getWindowsExecutableName() : getPosixExecutableName();
+    return isWindows() ? getWindowsFilename() : getPosixFilename();
   }
 
   /** @return the directory of the file */
